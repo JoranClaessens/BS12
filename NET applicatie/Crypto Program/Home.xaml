@@ -1,7 +1,7 @@
-﻿<Window x:Class="Crypto_Program.MainWindow"
+﻿<Window x:Class="Crypto_Program.Home"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="650" Width="1000" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        Title="Crypto Program" Height="650" Width="1000" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
         <Image Source="Afbeeldingen/background-2.jpg" VerticalAlignment="Top" Height="75" Stretch="UniformToFill"/>
         <Image Source="Afbeeldingen/logo-2.jpg" VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" Margin="50,0"/>
