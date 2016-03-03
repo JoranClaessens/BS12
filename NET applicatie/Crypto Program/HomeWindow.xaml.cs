@@ -18,9 +18,9 @@ namespace Crypto_Program
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class Home : Window
+    public partial class HomeWindow : Window
     {
-        public Home()
+        public HomeWindow()
         {
             InitializeComponent();
 
@@ -29,9 +29,6 @@ namespace Crypto_Program
 
             decryptExpander.MouseEnter += decryptExpander_MouseEnter;
             decryptExpander.MouseLeave += decryptExpander_MouseLeave;
-
-            displayFrame.NavigationUIVisibility = NavigationUIVisibility.Hidden;
-            displayFrame.Navigated += displayFrame_Navigated;
         }
 
         void encryptExpander_MouseEnter(object sender, MouseEventArgs e)
@@ -52,11 +49,6 @@ namespace Crypto_Program
         void decryptExpander_MouseLeave(object sender, MouseEventArgs e)
         {
             decryptExpander.IsExpanded = false;
-        }
-
-        void displayFrame_Navigated(object sender, NavigationEventArgs e)
-        {
-            displayFrame.NavigationService.RemoveBackEntry();
         }
     }
 }

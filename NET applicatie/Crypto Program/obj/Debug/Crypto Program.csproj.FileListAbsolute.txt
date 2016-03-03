@@ -23,14 +23,16 @@ C:\Users\11400919\Documents\GitHub\BS12\NET applicatie\Crypto Program\obj\Debug\
 C:\Users\11400919\Documents\GitHub\BS12\NET applicatie\Crypto Program\bin\Debug\Crypto Program.exe
 C:\Users\11400919\Documents\GitHub\BS12\NET applicatie\Crypto Program\bin\Debug\Crypto Program.pdb
 C:\Users\11400919\Documents\GitHub\BS12\NET applicatie\Crypto Program\obj\Debug\Crypto Program.csprojResolveAssemblyReference.cache
-C:\Users\11400919\Documents\GitHub\BS12\NET applicatie\Crypto Program\obj\Debug\Login.baml
-C:\Users\11400919\Documents\GitHub\BS12\NET applicatie\Crypto Program\obj\Debug\Home.baml
-C:\Users\11400919\Documents\GitHub\BS12\NET applicatie\Crypto Program\obj\Debug\Login.g.cs
-C:\Users\11400919\Documents\GitHub\BS12\NET applicatie\Crypto Program\obj\Debug\Home.g.cs
 C:\Users\11400919\Documents\GitHub\BS12\NET applicatie\Crypto Program\obj\Debug\App.g.cs
 C:\Users\11400919\Documents\GitHub\BS12\NET applicatie\Crypto Program\obj\Debug\Crypto Program_MarkupCompile.cache
 C:\Users\11400919\Documents\GitHub\BS12\NET applicatie\Crypto Program\obj\Debug\Crypto Program.g.resources
 C:\Users\11400919\Documents\GitHub\BS12\NET applicatie\Crypto Program\obj\Debug\Crypto_Program.Properties.Resources.resources
 C:\Users\11400919\Documents\GitHub\BS12\NET applicatie\Crypto Program\obj\Debug\Crypto Program.csproj.GenerateResource.Cache
-C:\Users\11400919\Documents\GitHub\BS12\NET applicatie\Crypto Program\obj\Debug\Registreer.baml
-C:\Users\11400919\Documents\GitHub\BS12\NET applicatie\Crypto Program\obj\Debug\Registreer.g.cs
+C:\Users\11400919\Documents\GitHub\BS12\NET applicatie\Crypto Program\obj\Debug\EncryptTextPage.baml
+C:\Users\11400919\Documents\GitHub\BS12\NET applicatie\Crypto Program\obj\Debug\LoginWindow.baml
+C:\Users\11400919\Documents\GitHub\BS12\NET applicatie\Crypto Program\obj\Debug\HomeWindow.baml
+C:\Users\11400919\Documents\GitHub\BS12\NET applicatie\Crypto Program\obj\Debug\RegistreerWindow.baml
+C:\Users\11400919\Documents\GitHub\BS12\NET applicatie\Crypto Program\obj\Debug\EncryptTextPage.g.cs
+C:\Users\11400919\Documents\GitHub\BS12\NET applicatie\Crypto Program\obj\Debug\LoginWindow.g.cs
+C:\Users\11400919\Documents\GitHub\BS12\NET applicatie\Crypto Program\obj\Debug\HomeWindow.g.cs
+C:\Users\11400919\Documents\GitHub\BS12\NET applicatie\Crypto Program\obj\Debug\RegistreerWindow.g.cs

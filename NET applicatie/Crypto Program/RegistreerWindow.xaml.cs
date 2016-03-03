@@ -17,9 +17,9 @@ namespace Crypto_Program
     /// <summary>
     /// Interaction logic for Registreer.xaml
     /// </summary>
-    public partial class Registreer : Window
+    public partial class RegistreerWindow : Window
     {
-        public Registreer()
+        public RegistreerWindow()
         {
             InitializeComponent();
         }

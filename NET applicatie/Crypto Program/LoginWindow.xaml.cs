@@ -17,9 +17,10 @@ namespace Crypto_Program
     /// <summary>
     /// Interaction logic for Login.xaml
     /// </summary>
-    public partial class Login : Window
+    public partial class LoginWindow : Window
     {
-        public Login()
+        
+        public LoginWindow()
         {
             InitializeComponent();
 
@@ -29,13 +30,14 @@ namespace Crypto_Program
 
         void aanmeldButton_Click(object sender, RoutedEventArgs e)
         {
-            Home homeWindow = new Home();
+            this.Hide();
+            HomeWindow homeWindow = new HomeWindow();
             homeWindow.ShowDialog();
         }
 
         void registreerButton_Click(object sender, RoutedEventArgs e)
         {
-            Registreer registreerWindow = new Registreer();
+            RegistreerWindow registreerWindow = new RegistreerWindow();
             registreerWindow.ShowDialog();
         }
     }
