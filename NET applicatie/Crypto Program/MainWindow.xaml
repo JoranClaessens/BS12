@@ -1,0 +1,24 @@
+﻿<Window x:Class="Crypto_Program.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="650" Width="1000" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Grid>
+        <Image Source="Afbeeldingen/background-2.jpg" VerticalAlignment="Top" Height="75" Stretch="UniformToFill"/>
+        <Image Source="Afbeeldingen/logo-2.jpg" VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" Margin="50,0"/>
+        <Expander x:Name="encryptExpander" Header="Encrypt" FontSize="25" Foreground="White" VerticalAlignment="Top" Margin="200,20">
+            <ListBox HorizontalAlignment="Left" Width="250">
+                <TextBlock Text="Encrypt text" Margin="0,5"/>
+                <TextBlock Text="Encrypt a text file" Margin="0,5"/>
+                <TextBlock Text="..." Margin="0,5"/>
+            </ListBox>
+        </Expander>
+        <Expander x:Name="decryptExpander" Header="Decrypt" FontSize="25" Foreground="White" VerticalAlignment="Top" Margin="350,20">
+            <ListBox HorizontalAlignment="Left" Width="250">
+                <TextBlock Text="Decrypt text" Margin="0,5"/>
+                <TextBlock Text="Decrypt a text file" Margin="0,5"/>
+                <TextBlock Text="..." Margin="0,5"/>
+            </ListBox>
+        </Expander>
+        <Frame x:Name="displayFrame"></Frame>
+    </Grid>
+</Window>
