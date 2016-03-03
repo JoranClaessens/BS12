@@ -14,3 +14,6 @@ C:\PXL\Vakken\Jaar 2015-2016 Semester 2\Basic Security\Opdrachten\Crypto Program
 C:\PXL\Vakken\Jaar 2015_2016 Semester 2\Basic Security\Opdrachten\Crypto Program\bin\Debug\Crypto Program.exe.config
 C:\PXL\Vakken\Jaar 2015_2016 Semester 2\Basic Security\Opdrachten\Crypto Program\obj\Debug\Crypto Program.exe
 C:\PXL\Vakken\Jaar 2015_2016 Semester 2\Basic Security\Opdrachten\Crypto Program\obj\Debug\Crypto Program.pdb
+C:\Users\Rudy Mas\Documents\GitHub\BS12\NET applicatie\Crypto Program\bin\Debug\Crypto Program.exe.config
+C:\Users\Rudy Mas\Documents\GitHub\BS12\NET applicatie\Crypto Program\obj\Debug\Crypto Program.exe
+C:\Users\Rudy Mas\Documents\GitHub\BS12\NET applicatie\Crypto Program\obj\Debug\Crypto Program.pdb
