@@ -20,7 +20,7 @@ namespace Crypto_Program
     /// </summary>
     public partial class HomeWindow : Window
     {
-        public HomeWindow()
+        public HomeWindow(string gebruiker)
         {
             InitializeComponent();
 
@@ -29,6 +29,9 @@ namespace Crypto_Program
 
             decryptExpander.MouseEnter += decryptExpander_MouseEnter;
             decryptExpander.MouseLeave += decryptExpander_MouseLeave;
+
+            gebruikerLabel.Content = "Ingelogd als " + gebruiker;
+            afmeldButton.Click += afmeldButton_Click;
         }
 
         void encryptExpander_MouseEnter(object sender, MouseEventArgs e)
@@ -50,5 +53,17 @@ namespace Crypto_Program
         {
             decryptExpander.IsExpanded = false;
         }
+
+        void afmeldButton_Click(object sender, RoutedEventArgs e)
+        {
+           MessageBoxResult result = MessageBox.Show("Bent u zeker dat u wilt afmelden?", "Afmelden", MessageBoxButton.YesNo, MessageBoxImage.Question);
+           if (result == MessageBoxResult.Yes)
+           {
+               this.Close();
+               LoginWindow loginWindow = new LoginWindow();
+               loginWindow.ShowDialog();
+           }
+        }
+
     }
 }

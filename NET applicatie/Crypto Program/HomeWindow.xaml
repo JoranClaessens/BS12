@@ -19,6 +19,10 @@
                 <TextBlock Text="..." Margin="0,5"/>
             </ListBox>
         </Expander>
+        <StackPanel HorizontalAlignment="Right" VerticalAlignment="Top" Height="75">
+            <Label x:Name="gebruikerLabel" FontSize="22" Foreground="White"/>
+            <Button x:Name="afmeldButton" Content="Afmelden" HorizontalAlignment="Right" Margin="0,5,5,0" Width="100"/>
+        </StackPanel>
         <Frame x:Name="displayFrame"></Frame>
     </Grid>
 </Window>

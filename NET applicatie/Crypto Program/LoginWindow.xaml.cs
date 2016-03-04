@@ -39,32 +39,40 @@ namespace Crypto_Program
         {
             string gebruiker = gebruikerBox.Text.ToString();
             string paswoord = paswoordBox.Password;
-            bool succes = false;
+            bool succesGebruiker = false;
+            bool succesPaswoord = false;
 
             using (StreamReader reader = new StreamReader("gebruikers.txt"))
             {
                 string line =  reader.ReadLine();
 
-                while(line != null && !succes)
+                while(line != null && !succesPaswoord)
                 {
                     string[] lines = line.Split(',');
                     if (lines[0] == gebruiker) 
                     {
-                        succes = PaswoordEncryptie.VerifyHash(paswoord, "SHA1", lines[1]);
+                        succesGebruiker = true;
+                        succesPaswoord = PaswoordEncryptie.VerifyHash(paswoord, "SHA1", lines[1]);
                     }
                     line = reader.ReadLine();
                 }
 
-                if (succes)
+                if (succesPaswoord)
                 {
                     MessageBox.Show("Succesvol ingelogd");
                     this.Hide();
-                    HomeWindow homeWindow = new HomeWindow();
+                    HomeWindow homeWindow = new HomeWindow(gebruiker);
                     homeWindow.ShowDialog();
                 }
+                else if (succesGebruiker) 
+                {
+                    MessageBox.Show("Verkeerd paswoord!");
+                }
+                else
+                {
+                    MessageBox.Show("Deze gebruiker bestaat niet.");
+                }
             }
-
-            
         }
 
         void registreerButton_Click(object sender, RoutedEventArgs e)
