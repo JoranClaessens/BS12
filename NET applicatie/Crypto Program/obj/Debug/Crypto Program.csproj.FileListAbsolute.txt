@@ -28,11 +28,9 @@ C:\Users\11400919\Documents\GitHub\BS12\NET applicatie\Crypto Program\obj\Debug\
 C:\Users\11400919\Documents\GitHub\BS12\NET applicatie\Crypto Program\obj\Debug\Crypto Program.g.resources
 C:\Users\11400919\Documents\GitHub\BS12\NET applicatie\Crypto Program\obj\Debug\Crypto_Program.Properties.Resources.resources
 C:\Users\11400919\Documents\GitHub\BS12\NET applicatie\Crypto Program\obj\Debug\Crypto Program.csproj.GenerateResource.Cache
-C:\Users\11400919\Documents\GitHub\BS12\NET applicatie\Crypto Program\obj\Debug\EncryptTextPage.baml
 C:\Users\11400919\Documents\GitHub\BS12\NET applicatie\Crypto Program\obj\Debug\LoginWindow.baml
 C:\Users\11400919\Documents\GitHub\BS12\NET applicatie\Crypto Program\obj\Debug\HomeWindow.baml
 C:\Users\11400919\Documents\GitHub\BS12\NET applicatie\Crypto Program\obj\Debug\RegistreerWindow.baml
-C:\Users\11400919\Documents\GitHub\BS12\NET applicatie\Crypto Program\obj\Debug\EncryptTextPage.g.cs
 C:\Users\11400919\Documents\GitHub\BS12\NET applicatie\Crypto Program\obj\Debug\LoginWindow.g.cs
 C:\Users\11400919\Documents\GitHub\BS12\NET applicatie\Crypto Program\obj\Debug\HomeWindow.g.cs
 C:\Users\11400919\Documents\GitHub\BS12\NET applicatie\Crypto Program\obj\Debug\RegistreerWindow.g.cs

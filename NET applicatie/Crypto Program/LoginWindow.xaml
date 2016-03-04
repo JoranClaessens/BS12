@@ -12,8 +12,12 @@
                 <TextBlock Text="Paswoord" Width="100" Margin="30,0"/>
                 <PasswordBox x:Name="paswoordBox" Width="150"/>
             </StackPanel>
-            <Button x:Name="aanmeldButton" Content="Aanmelden" HorizontalAlignment="Center" Width="150"/>
+            <StackPanel>
+                <Button x:Name="aanmeldButton" Content="Aanmelden" HorizontalAlignment="Center" Width="150"/>
+                <TextBlock Text="OF" HorizontalAlignment="Center" Margin="010"/>
+                <Button x:Name="registreerButton" Content="Nieuwe gebruiker" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="150"/>
+            </StackPanel>
         </StackPanel>
-        <Button x:Name="registreerButton" Content="Nieuwe gebruiker" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="150" Margin="30,0,0,30"/>
+        
     </Grid>
 </Window>

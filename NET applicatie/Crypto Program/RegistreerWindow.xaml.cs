@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Text;
+using System.IO;
 
 namespace Crypto_Program
 {
@@ -22,6 +24,24 @@ namespace Crypto_Program
         public RegistreerWindow()
         {
             InitializeComponent();
+
+            AccountButton.Click += AccountButton_Click;
+        }
+
+        void AccountButton_Click(object sender, RoutedEventArgs e)
+        {
+            string gebruiker = gebruikerBox.Text.ToString();
+            string paswoord = paswoordBox.Password;
+
+            string paswoordHash = PaswoordEncryptie.ComputeHash(paswoord, "SHA1", null);
+
+            using (StreamWriter writer = new StreamWriter("gebruikers.txt"))
+            {
+                writer.WriteLine(gebruiker + "," + paswoordHash);
+                writer.Close();
+            }
+
+            this.Close();
         }
     }
 }
