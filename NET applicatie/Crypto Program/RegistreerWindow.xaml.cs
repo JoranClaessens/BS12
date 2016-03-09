@@ -46,7 +46,7 @@ namespace Crypto_Program
 
                         using (StreamWriter writer = File.AppendText(file))
                         {
-                            writer.Write(gebruiker + "," + paswoordHash);
+                            writer.WriteLine(gebruiker + "," + paswoordHash);
                             writer.Close();
                         }
 

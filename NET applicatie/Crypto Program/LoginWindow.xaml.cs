@@ -48,8 +48,8 @@ namespace Crypto_Program
                     string paswoordAlice = PaswoordEncryptie.ComputeHash("Paswoord1", "SHA1", null);
                     string paswoordBob = PaswoordEncryptie.ComputeHash("Paswoord2", "SHA1", null);
 
-                    writer.Write("Alice," + paswoordAlice);
-                    writer.Write("Bob," + paswoordBob);
+                    writer.WriteLine("Alice," + paswoordAlice);
+                    writer.WriteLine("Bob," + paswoordBob);
                 }
             }
         }
