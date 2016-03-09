@@ -43,16 +43,14 @@ namespace Crypto_Program
 
             if (!File.Exists(file))
             {
-                File.Create(file);
+                using (StreamWriter writer = File.CreateText(file))
+                {
+                    string paswoordAlice = PaswoordEncryptie.ComputeHash("Paswoord1", "SHA1", null);
+                    string paswoordBob = PaswoordEncryptie.ComputeHash("Paswoord2", "SHA1", null);
 
-                //using (StreamWriter writer = new StreamWriter(file))
-                //{
-                //    string paswoordAlice = PaswoordEncryptie.ComputeHash("Paswoord1", "SHA1", null);
-                //    string paswoordBob = PaswoordEncryptie.ComputeHash("Paswoord2", "SHA1", null);
-
-                //    writer.Write("Alice," + paswoordAlice);
-                //    writer.Write("Bob," + paswoordBob);
-                //}
+                    writer.Write("Alice," + paswoordAlice);
+                    writer.Write("Bob," + paswoordBob);
+                }
             }
         }
 

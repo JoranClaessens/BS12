@@ -11,7 +11,6 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using System.Text;
 using System.IO;
 
 namespace Crypto_Program
@@ -45,9 +44,9 @@ namespace Crypto_Program
                         string specificFolder = System.IO.Path.Combine(folder, "CryptoProgram");
                         string file = System.IO.Path.Combine(specificFolder, "gebruikers.txt");
 
-                        using (StreamWriter writer = new StreamWriter(file))
+                        using (StreamWriter writer = File.AppendText(file))
                         {
-                            writer.WriteLine(gebruiker + "," + paswoordHash);
+                            writer.Write(gebruiker + "," + paswoordHash);
                             writer.Close();
                         }
 
