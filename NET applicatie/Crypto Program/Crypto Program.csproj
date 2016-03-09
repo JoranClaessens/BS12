@@ -57,6 +57,7 @@
     <Compile Include="RegistreerWindow.xaml.cs">
       <DependentUpon>RegistreerWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Validatie.cs" />
     <Page Include="LoginWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

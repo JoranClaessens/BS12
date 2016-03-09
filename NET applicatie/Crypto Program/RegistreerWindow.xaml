@@ -12,7 +12,7 @@
                 <TextBlock Text="Paswoord" Width="100" Margin="30,0"/>
                 <PasswordBox x:Name="paswoordBox" Width="150"/>
             </StackPanel>
-            <Button x:Name="AccountButton" Content="Account aanmaken" HorizontalAlignment="Center" Width="150"/>
+            <Button x:Name="accountButton" Content="Account aanmaken" HorizontalAlignment="Center" Width="150"/>
         </StackPanel>
     </Grid>
 </Window>

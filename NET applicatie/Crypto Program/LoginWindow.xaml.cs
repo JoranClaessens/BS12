@@ -12,7 +12,6 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Crypto_Program
 {
@@ -21,6 +20,9 @@ namespace Crypto_Program
     /// </summary>
     public partial class LoginWindow : Window
     {
+        private string folder;
+        private string specificFolder;
+        private string file;
         
         public LoginWindow()
         {
@@ -29,9 +31,28 @@ namespace Crypto_Program
             aanmeldButton.Click += aanmeldButton_Click;
             registreerButton.Click += registreerButton_Click;
 
-            if (!File.Exists("gebruikers.txt"))
+            folder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+            specificFolder = System.IO.Path.Combine(folder, "CryptoProgram");
+
+            if (!Directory.Exists(specificFolder))
             {
-                File.Create("gebruikers.txt");
+                Directory.CreateDirectory(specificFolder);
+            }
+
+            file = System.IO.Path.Combine(specificFolder, "gebruikers.txt");
+
+            if (!File.Exists(file))
+            {
+                File.Create(file);
+
+                //using (StreamWriter writer = new StreamWriter(file))
+                //{
+                //    string paswoordAlice = PaswoordEncryptie.ComputeHash("Paswoord1", "SHA1", null);
+                //    string paswoordBob = PaswoordEncryptie.ComputeHash("Paswoord2", "SHA1", null);
+
+                //    writer.Write("Alice," + paswoordAlice);
+                //    writer.Write("Bob," + paswoordBob);
+                //}
             }
         }
 
@@ -42,7 +63,7 @@ namespace Crypto_Program
             bool succesGebruiker = false;
             bool succesPaswoord = false;
 
-            using (StreamReader reader = new StreamReader("gebruikers.txt"))
+            using (StreamReader reader = new StreamReader(file))
             {
                 string line =  reader.ReadLine();
 

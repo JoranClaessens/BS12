@@ -25,23 +25,40 @@ namespace Crypto_Program
         {
             InitializeComponent();
 
-            AccountButton.Click += AccountButton_Click;
+            accountButton.Click += accountButton_Click;
         }
 
-        void AccountButton_Click(object sender, RoutedEventArgs e)
+        void accountButton_Click(object sender, RoutedEventArgs e)
         {
             string gebruiker = gebruikerBox.Text.ToString();
             string paswoord = paswoordBox.Password;
 
-            string paswoordHash = PaswoordEncryptie.ComputeHash(paswoord, "SHA1", null);
-
-            using (StreamWriter writer = new StreamWriter("gebruikers.txt"))
+            try
             {
-                writer.WriteLine(gebruiker + "," + paswoordHash);
-                writer.Close();
-            }
+                if (Validatie.ValideerGebruiker(gebruiker)) 
+                {
+                    if (Validatie.ValideerPaswoord(paswoord))
+                    {
+                        string paswoordHash = PaswoordEncryptie.ComputeHash(paswoord, "SHA1", null);
 
-            this.Close();
+                        string folder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+                        string specificFolder = System.IO.Path.Combine(folder, "CryptoProgram");
+                        string file = System.IO.Path.Combine(specificFolder, "gebruikers.txt");
+
+                        using (StreamWriter writer = new StreamWriter(file))
+                        {
+                            writer.WriteLine(gebruiker + "," + paswoordHash);
+                            writer.Close();
+                        }
+
+                        this.Close();
+                    }
+                }
+            }
+            catch (ArgumentNullException ex)
+            {
+                MessageBox.Show(ex.Message + "Gebruiker is leeg");
+            } 
         }
     }
 }
