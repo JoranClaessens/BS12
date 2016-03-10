@@ -45,8 +45,8 @@ namespace Crypto_Program
             {
                 using (StreamWriter writer = File.CreateText(file))
                 {
-                    string paswoordAlice = PaswoordEncryptie.ComputeHash("Paswoord1", "SHA1", null);
-                    string paswoordBob = PaswoordEncryptie.ComputeHash("Paswoord2", "SHA1", null);
+                    string paswoordAlice = PaswoordEncryptie.ComputeHash("Paswoord1", "SHA256", null);
+                    string paswoordBob = PaswoordEncryptie.ComputeHash("Paswoord2", "SHA256", null);
 
                     writer.WriteLine("Alice," + paswoordAlice);
                     writer.WriteLine("Bob," + paswoordBob);
@@ -71,7 +71,7 @@ namespace Crypto_Program
                     if (lines[0] == gebruiker) 
                     {
                         succesGebruiker = true;
-                        succesPaswoord = PaswoordEncryptie.VerifyHash(paswoord, "SHA1", lines[1]);
+                        succesPaswoord = PaswoordEncryptie.VerifyHash(paswoord, "SHA256", lines[1]);
                     }
                     line = reader.ReadLine();
                 }

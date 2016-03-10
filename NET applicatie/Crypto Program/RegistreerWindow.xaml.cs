@@ -38,7 +38,7 @@ namespace Crypto_Program
                 {
                     if (Validatie.ValideerPaswoord(paswoord))
                     {
-                        string paswoordHash = PaswoordEncryptie.ComputeHash(paswoord, "SHA1", null);
+                        string paswoordHash = PaswoordEncryptie.ComputeHash(paswoord, "SHA256", null);
 
                         string folder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
                         string specificFolder = System.IO.Path.Combine(folder, "CryptoProgram");

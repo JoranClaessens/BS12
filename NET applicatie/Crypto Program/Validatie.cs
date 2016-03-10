@@ -71,7 +71,7 @@ namespace Crypto_Program
 
                 if (!isValid)
                 {
-                    MessageBox.Show("Foute naam. De gebruikersnaam moet bestaan uit minstens één hoofdletter en één klein letter." 
+                    MessageBox.Show("Ongeldige naam. De gebruikersnaam moet bestaan uit: \n\t - 3 tot 25 karakters \n\t - één hoofdletter \n\t - één klein letter \n" 
                                    + "Komma's worden niet aanvaard.");
                 }
 
@@ -122,7 +122,7 @@ namespace Crypto_Program
 
             if (!isValid)
             {
-                MessageBox.Show("Fout paswoord. Het paswoord moet bestaan uit minstens één hoofdletter, één klein letter en één cijfer.");
+                MessageBox.Show("Ongeldig paswoord. Het paswoord moet bestaan uit: \n\t - 8 tot 15 karakters \n\t - één hoofdletter \n\t - één klein letter \n\t - één cijfer");
             }
 
             return isValid;
