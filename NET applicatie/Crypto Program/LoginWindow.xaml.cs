@@ -39,6 +39,13 @@ namespace Crypto_Program
                 Directory.CreateDirectory(specificFolder);
             }
 
+            string specificFolder2 = System.IO.Path.Combine(specificFolder, "keys");
+
+            if (!Directory.Exists(specificFolder2))
+            {
+                Directory.CreateDirectory(specificFolder2);
+            }
+
             file = System.IO.Path.Combine(specificFolder, "gebruikers.txt");
 
             if (!File.Exists(file))
@@ -50,6 +57,9 @@ namespace Crypto_Program
 
                     writer.WriteLine("Alice," + paswoordAlice);
                     writer.WriteLine("Bob," + paswoordBob);
+
+                    Encryptie.GenerateRSAKeyPair("Alice");
+                    Encryptie.GenerateRSAKeyPair("Bob");
                 }
             }
         }

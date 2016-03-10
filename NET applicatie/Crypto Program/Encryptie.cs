@@ -10,7 +10,7 @@ namespace Crypto_Program
 {
     class Encryptie
     {
-        private static void GenerateRSAKeyPair(string gebruikersnaam)
+        public static void GenerateRSAKeyPair(string gebruikersnaam)
         {
             string folder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
             string specificFolder = System.IO.Path.Combine(folder, "CryptoProgram/keys");
