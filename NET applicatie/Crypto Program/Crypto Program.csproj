@@ -53,6 +53,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Encryptie.cs" />
     <Compile Include="PaswoordEncryptie.cs" />
     <Compile Include="RegistreerWindow.xaml.cs">
       <DependentUpon>RegistreerWindow.xaml</DependentUpon>
