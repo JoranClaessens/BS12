@@ -32,12 +32,16 @@ namespace Crypto_Program
             string gebruiker = gebruikerBox.Text.ToString();
             string paswoord = paswoordBox.Password;
 
+            //BS12Entities BS12 = new BS12Entities();
+
             try
             {
                 if (Validatie.ValideerGebruiker(gebruiker)) 
                 {
                     if (Validatie.ValideerPaswoord(paswoord))
                     {
+                        
+
                         string paswoordHash = PaswoordEncryptie.ComputeHash(paswoord, "SHA256", null);
 
                         string folder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
@@ -50,6 +54,18 @@ namespace Crypto_Program
                             writer.Close();
                         }
 
+                        //Gebruiker gebruikerDB = new Gebruiker();
+                        //gebruikerDB.Id = 1;
+                        //gebruikerDB.Gebruikersnaam = gebruiker;
+                        //gebruikerDB.Paswoord = paswoordHash;
+                        //BS12.Gebruiker.Add(gebruikerDB);
+                        //BS12.SaveChanges();
+
+                        //var test = (from c in BS12.Gebruiker
+                        //           select c).First();
+
+                        //MessageBox.Show(test.Gebruikersnaam + " + " + test.Paswoord);
+
                         this.Close();
                     }
                 }
@@ -57,7 +73,7 @@ namespace Crypto_Program
             catch (ArgumentNullException ex)
             {
                 MessageBox.Show(ex.Message + "Gebruiker is leeg");
-            } 
+            }
         }
     }
 }

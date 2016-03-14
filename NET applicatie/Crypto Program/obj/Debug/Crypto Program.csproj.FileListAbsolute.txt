@@ -34,3 +34,8 @@ C:\Users\11400919\Documents\GitHub\BS12\NET applicatie\Crypto Program\obj\Debug\
 C:\Users\11400919\Documents\GitHub\BS12\NET applicatie\Crypto Program\obj\Debug\LoginWindow.g.cs
 C:\Users\11400919\Documents\GitHub\BS12\NET applicatie\Crypto Program\obj\Debug\HomeWindow.g.cs
 C:\Users\11400919\Documents\GitHub\BS12\NET applicatie\Crypto Program\obj\Debug\RegistreerWindow.g.cs
+C:\Users\11400919\Documents\GitHub\BS12\NET applicatie\Crypto Program\obj\Debug\Crypto Program_Content.g.cs
+C:\Users\11400919\Documents\GitHub\BS12\NET applicatie\Crypto Program\bin\Debug\EntityFramework.dll
+C:\Users\11400919\Documents\GitHub\BS12\NET applicatie\Crypto Program\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\11400919\Documents\GitHub\BS12\NET applicatie\Crypto Program\bin\Debug\EntityFramework.xml
+C:\Users\11400919\Documents\GitHub\BS12\NET applicatie\Crypto Program\bin\Debug\EntityFramework.SqlServer.xml

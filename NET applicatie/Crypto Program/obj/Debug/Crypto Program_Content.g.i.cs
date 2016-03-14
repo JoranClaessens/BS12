@@ -8,6 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("afbeeldingen/logo-2.jpg")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("bs12model.context.tt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("bs12model.tt")]
 
 

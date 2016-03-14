@@ -28,6 +28,13 @@ namespace Crypto_Program
         {
             InitializeComponent();
 
+            //BS12Entities BS12 = new BS12Entities();
+
+            //var test = (from c in BS12.Gebruiker
+            //            select c).First();
+
+            //MessageBox.Show(test.Gebruikersnaam + " + " + test.Paswoord);
+
             aanmeldButton.Click += aanmeldButton_Click;
             registreerButton.Click += registreerButton_Click;
 
