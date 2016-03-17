@@ -32,7 +32,7 @@ namespace Crypto_Program
             string gebruiker = gebruikerBox.Text.ToString();
             string paswoord = paswoordBox.Password;
 
-            //BS12Entities BS12 = new BS12Entities();
+            BS12Entities BS12 = new BS12Entities();
 
             try
             {
@@ -40,31 +40,17 @@ namespace Crypto_Program
                 {
                     if (Validatie.ValideerPaswoord(paswoord))
                     {
-                        
-
                         string paswoordHash = PaswoordEncryptie.ComputeHash(paswoord, "SHA256", null);
 
-                        string folder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-                        string specificFolder = System.IO.Path.Combine(folder, "CryptoProgram");
-                        string file = System.IO.Path.Combine(specificFolder, "gebruikers.txt");
+                        var id = (from gebruikers in BS12.Gebruiker
+                                    select gebruikers).Count(); ;
 
-                        using (StreamWriter writer = File.AppendText(file))
-                        {
-                            writer.WriteLine(gebruiker + "," + paswoordHash);
-                            writer.Close();
-                        }
-
-                        //Gebruiker gebruikerDB = new Gebruiker();
-                        //gebruikerDB.Id = 1;
-                        //gebruikerDB.Gebruikersnaam = gebruiker;
-                        //gebruikerDB.Paswoord = paswoordHash;
-                        //BS12.Gebruiker.Add(gebruikerDB);
-                        //BS12.SaveChanges();
-
-                        //var test = (from c in BS12.Gebruiker
-                        //           select c).First();
-
-                        //MessageBox.Show(test.Gebruikersnaam + " + " + test.Paswoord);
+                        Gebruiker gebruikerDB = new Gebruiker();
+                        gebruikerDB.Id = id + 1;
+                        gebruikerDB.Gebruikersnaam = gebruiker;
+                        gebruikerDB.Paswoord = paswoordHash;
+                        BS12.Gebruiker.Add(gebruikerDB);
+                        BS12.SaveChanges();
 
                         this.Close();
                     }

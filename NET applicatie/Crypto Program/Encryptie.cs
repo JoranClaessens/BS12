@@ -17,11 +17,11 @@ namespace Crypto_Program
 
             RSACryptoServiceProvider rsa = new RSACryptoServiceProvider(2048);
             
-            string publicA = rsa.ToXmlString(false);
+            string publicA = rsa.ToString();
             string filePublic = System.IO.Path.Combine(specificFolder, "Public_" + gebruikersnaam + ".txt");
             File.WriteAllText(filePublic, publicA);
             
-            string privateA = rsa.ToXmlString(true);
+            string privateA = rsa.ToString();
             string filePrivate = System.IO.Path.Combine(specificFolder, "Private_" + gebruikersnaam + ".txt");
             File.WriteAllText(filePrivate, privateA);
         }

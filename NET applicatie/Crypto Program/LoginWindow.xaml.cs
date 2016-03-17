@@ -22,18 +22,13 @@ namespace Crypto_Program
     {
         private string folder;
         private string specificFolder;
-        private string file;
+        private BS12Entities BS12;
         
         public LoginWindow()
         {
             InitializeComponent();
 
-            //BS12Entities BS12 = new BS12Entities();
-
-            //var test = (from c in BS12.Gebruiker
-            //            select c).First();
-
-            //MessageBox.Show(test.Gebruikersnaam + " + " + test.Paswoord);
+            BS12 = new BS12Entities();
 
             aanmeldButton.Click += aanmeldButton_Click;
             registreerButton.Click += registreerButton_Click;
@@ -52,23 +47,6 @@ namespace Crypto_Program
             {
                 Directory.CreateDirectory(specificFolder2);
             }
-
-            file = System.IO.Path.Combine(specificFolder, "gebruikers.txt");
-
-            if (!File.Exists(file))
-            {
-                using (StreamWriter writer = File.CreateText(file))
-                {
-                    string paswoordAlice = PaswoordEncryptie.ComputeHash("Paswoord1", "SHA256", null);
-                    string paswoordBob = PaswoordEncryptie.ComputeHash("Paswoord2", "SHA256", null);
-
-                    writer.WriteLine("Alice," + paswoordAlice);
-                    writer.WriteLine("Bob," + paswoordBob);
-
-                    Encryptie.GenerateRSAKeyPair("Alice");
-                    Encryptie.GenerateRSAKeyPair("Bob");
-                }
-            }
         }
 
         void aanmeldButton_Click(object sender, RoutedEventArgs e)
@@ -78,36 +56,36 @@ namespace Crypto_Program
             bool succesGebruiker = false;
             bool succesPaswoord = false;
 
-            using (StreamReader reader = new StreamReader(file))
+            BS12 = new BS12Entities();
+
+            var aantalRijen = (from userDB in BS12.Gebruiker
+                               where userDB.Gebruikersnaam == gebruiker
+                               select userDB).Count();
+
+            if (aantalRijen > 0)
             {
-                string line =  reader.ReadLine();
+                var user = (from userDB in BS12.Gebruiker
+                            where userDB.Gebruikersnaam == gebruiker
+                            select userDB).First();
 
-                while(line != null && !succesPaswoord)
-                {
-                    string[] lines = line.Split(',');
-                    if (lines[0] == gebruiker) 
-                    {
-                        succesGebruiker = true;
-                        succesPaswoord = PaswoordEncryptie.VerifyHash(paswoord, "SHA256", lines[1]);
-                    }
-                    line = reader.ReadLine();
-                }
-
-                if (succesPaswoord)
-                {
-                    MessageBox.Show("Succesvol ingelogd");
-                    this.Hide();
-                    HomeWindow homeWindow = new HomeWindow(gebruiker);
-                    homeWindow.ShowDialog();
-                }
-                else if (succesGebruiker) 
-                {
-                    MessageBox.Show("Verkeerd paswoord!");
-                }
-                else
-                {
-                    MessageBox.Show("Deze gebruiker bestaat niet.");
-                }
+                succesGebruiker = true;
+                succesPaswoord = PaswoordEncryptie.VerifyHash(paswoord, "SHA256", user.Paswoord);
+            }
+            
+            if (succesPaswoord)
+            {
+                MessageBox.Show("Succesvol ingelogd");
+                this.Hide();
+                HomeWindow homeWindow = new HomeWindow(gebruiker);
+                homeWindow.ShowDialog();
+            }
+            else if (succesGebruiker) 
+            {
+                MessageBox.Show("Verkeerd paswoord!");
+            }
+            else
+            {
+                MessageBox.Show("Deze gebruiker bestaat niet.");
             }
         }
 

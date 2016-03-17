@@ -14,23 +14,15 @@ namespace Crypto_Program
         {
             bool existUser = false;
 
-            string folder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-            string specificFolder = System.IO.Path.Combine(folder, "CryptoProgram");
-            string file = System.IO.Path.Combine(specificFolder, "gebruikers.txt");
+            BS12Entities BS12 = new BS12Entities();
 
-            using (StreamReader reader = new StreamReader(file))
+            var user = (from gebruiker in BS12.Gebruiker
+                       where gebruiker.Gebruikersnaam == gebruikersNaam
+                       select gebruiker).Count();
+
+            if (user > 0)
             {
-                string line = reader.ReadLine();
-
-                while (line != null && !existUser)
-                {
-                    string[] lines = line.Split(',');
-                    if (lines[0] == gebruikersNaam)
-                    {
-                        existUser = true;
-                    }
-                    line = reader.ReadLine();
-                }
+                existUser = true;
             }
 
             if (!existUser)
