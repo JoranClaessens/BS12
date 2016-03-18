@@ -74,7 +74,6 @@ namespace Crypto_Program
             
             if (succesPaswoord)
             {
-                MessageBox.Show("Succesvol ingelogd");
                 this.Hide();
                 HomeWindow homeWindow = new HomeWindow(gebruiker);
                 homeWindow.ShowDialog();

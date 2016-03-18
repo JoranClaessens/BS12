@@ -27,6 +27,8 @@ namespace Crypto_Program
             encryptExpander.MouseEnter += encryptExpander_MouseEnter;
             encryptExpander.MouseLeave += encryptExpander_MouseLeave;
 
+            
+
             decryptExpander.MouseEnter += decryptExpander_MouseEnter;
             decryptExpander.MouseLeave += decryptExpander_MouseLeave;
 

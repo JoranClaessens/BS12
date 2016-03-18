@@ -48,6 +48,7 @@ namespace Crypto_Program
                         Gebruiker gebruikerDB = new Gebruiker();
                         gebruikerDB.Id = id + 1;
                         gebruikerDB.Gebruikersnaam = gebruiker;
+                        Encryptie.GenerateRSAKeyPair(gebruiker);
                         gebruikerDB.Paswoord = paswoordHash;
                         BS12.Gebruiker.Add(gebruikerDB);
                         BS12.SaveChanges();
