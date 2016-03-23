@@ -92,7 +92,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BS12Model.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Encryptie.cs" />
+    <Compile Include="DESMethod.cs" />
+    <Compile Include="Keys.cs" />
     <Compile Include="Gebruiker.cs">
       <DependentUpon>BS12Model.tt</DependentUpon>
     </Compile>

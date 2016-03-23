@@ -8,7 +8,7 @@
         <Image Source="Afbeeldingen/logo-2.jpg" VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" Margin="50,0"/>
         <Expander x:Name="encryptExpander" Header="Encrypt" FontSize="25" Foreground="White" VerticalAlignment="Top" Margin="200,20">
             <ListBox HorizontalAlignment="Left" Width="350">
-                <Button Content="Encrypt text" Background="White" BorderBrush="White" Width="335" HorizontalAlignment="Left"/>
+                <Button Content="Encrypt text" Background="White" BorderBrush="White" Width="335" HorizontalContentAlignment="Left"/>
                 <Button Content="Encrypt file" Background="White" BorderBrush="White" Width="335" HorizontalContentAlignment="Left"/>
                 <Button Content="Encrypt using steganographie" Background="White" BorderBrush="White" Width="335" HorizontalContentAlignment="Left"/>
             </ListBox>
@@ -25,19 +25,35 @@
             <Button x:Name="afmeldButton" Content="Afmelden" HorizontalAlignment="Right" Margin="0,5,5,0" Width="100"/>
         </StackPanel>
 
-        <Grid x:Name="homeGrid" Margin="0,100,-0.4,0">
+        <Grid x:Name="homeGrid" Margin="0,100,-0.4,0" Visibility="Hidden">
             
         </Grid>
 
         <Grid x:Name="encryptTextGrid" Margin="0,100,-0.4,0">
+            <StackPanel Orientation="Horizontal" Width="Auto" Margin="20,0">
+                <StackPanel Orientation="Vertical" Width="400">
+                    <TextBlock Text="Voer hier je tekst in:" FontSize="16"/>
+                    <TextBox x:Name="inputEncryptTextBox" Height="400"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" Margin="20,0,20,140" VerticalAlignment="Center">
+                    <Button x:Name="encryptTextButton" Content="Encrypt &gt;" FontSize="20"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" Width="400" Margin="0,0">
+                    <TextBlock Text="Geëncrypteerde tekst:" FontSize="16"/>
+                    <TextBox x:Name="outputEncryptTextBox" Height="400"/>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+
+        <Grid x:Name="decryptTextGrid" Margin="0,100,-0.4,0" Visibility="Hidden">
 
         </Grid>
 
-        <Grid x:Name="encryptFileGrid" Margin="0,100,-0.4,0">
+        <Grid x:Name="encryptFileGrid" Margin="0,100,-0.4,0" Visibility="Hidden">
 
         </Grid>
 
-        <Grid x:Name="decryptFileGrid" Margin="0,100,-0.4,0">
+        <Grid x:Name="decryptFileGrid" Margin="0,100,-0.4,0" Visibility="Hidden">
 
         </Grid>
 

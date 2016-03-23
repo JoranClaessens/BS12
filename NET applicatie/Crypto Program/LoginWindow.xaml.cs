@@ -41,11 +41,18 @@ namespace Crypto_Program
                 Directory.CreateDirectory(specificFolder);
             }
 
-            string specificFolder2 = System.IO.Path.Combine(specificFolder, "keys");
+            string keyFolder = System.IO.Path.Combine(specificFolder, "keys");
 
-            if (!Directory.Exists(specificFolder2))
+            if (!Directory.Exists(keyFolder))
             {
-                Directory.CreateDirectory(specificFolder2);
+                Directory.CreateDirectory(keyFolder);
+            }
+
+            string fileFolder = System.IO.Path.Combine(specificFolder, "files");
+
+            if (!Directory.Exists(fileFolder))
+            {
+                Directory.CreateDirectory(fileFolder);
             }
         }
 

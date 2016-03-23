@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Crypto_Program
 {
-    class Encryptie
+    class Keys
     {
         public static void GenerateRSAKeyPair(string gebruikersnaam)
         {
@@ -17,11 +17,11 @@ namespace Crypto_Program
 
             RSACryptoServiceProvider rsa = new RSACryptoServiceProvider(2048);
             
-            string publicA = rsa.ToString();
+            string publicA = rsa.ToXmlString(false);
             string filePublic = System.IO.Path.Combine(specificFolder, "Public_" + gebruikersnaam + ".txt");
             File.WriteAllText(filePublic, publicA);
             
-            string privateA = rsa.ToString();
+            string privateA = rsa.ToXmlString(true);
             string filePrivate = System.IO.Path.Combine(specificFolder, "Private_" + gebruikersnaam + ".txt");
             File.WriteAllText(filePrivate, privateA);
         }

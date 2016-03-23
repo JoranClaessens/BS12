@@ -27,13 +27,19 @@ namespace Crypto_Program
             encryptExpander.MouseEnter += encryptExpander_MouseEnter;
             encryptExpander.MouseLeave += encryptExpander_MouseLeave;
 
-            
-
             decryptExpander.MouseEnter += decryptExpander_MouseEnter;
             decryptExpander.MouseLeave += decryptExpander_MouseLeave;
 
             gebruikerLabel.Content = "Ingelogd als " + gebruiker;
             afmeldButton.Click += afmeldButton_Click;
+
+            encryptTextButton.Click += encryptTextButton_Click;
+        }
+
+        void encryptTextButton_Click(object sender, RoutedEventArgs e)
+        {
+            DESMethod des = new DESMethod();
+            des.EncryptText("Alice", "Bob", inputEncryptTextBox.Text);
         }
 
         void encryptExpander_MouseEnter(object sender, MouseEventArgs e)
