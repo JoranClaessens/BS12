@@ -11,7 +11,7 @@ namespace Crypto_Program
 {
     class DESMethod
     {
-        public void EncryptText(string verzender, string ontvanger, string message)
+        public string EncryptText(string verzender, string ontvanger, string encryptieFilePath, string boodschap)
         {
             string folder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
             string filesFolder = System.IO.Path.Combine(folder, "CryptoProgram/files");
@@ -23,13 +23,10 @@ namespace Crypto_Program
             // create des, key and IV
             DES des = DES.Create();
 
-            FileStream fStream = File.Open(outputFile1, FileMode.Create);
+            byte[] encData = File.ReadAllBytes(encryptieFilePath);
+            EncryptFile(encData, outputFile1, des.Key, des.IV);
 
-            CryptoStream cStream = new CryptoStream(fStream, des.CreateEncryptor(des.Key, des.IV), CryptoStreamMode.Write);
-            byte[] messageData = System.Text.Encoding.UTF8.GetBytes(message);
-            cStream.Write(messageData, 0, messageData.Length);
-            cStream.Close();
-            fStream.Close();
+            string encryptedTekst = File.ReadAllText(outputFile1);
 
             string ontvangerPublicKey = System.IO.Path.Combine(keysFolder, "Public_" + ontvanger + ".txt");
             string publicOntvanger = File.ReadAllText(ontvangerPublicKey);
@@ -39,10 +36,21 @@ namespace Crypto_Program
             string privateVerzender = File.ReadAllText(verzenderPublicKey);
             
             MD5 hash = MD5.Create();
-            byte[] hashBoodschap = hash.ComputeHash(Encoding.UTF8.GetBytes("Ik ben een gebruiker " + verzender));
-
+            byte[] hashBoodschap = hash.ComputeHash(Encoding.UTF8.GetBytes(boodschap));
 
             Encrypt(hashBoodschap, privateVerzender, outputFile3);
+
+            return encryptedTekst;
+        }
+
+        private void EncryptFile(Byte[] Data, String FileName, byte[] Key, byte[] IV)
+        {
+            FileStream fStream = File.Open(FileName, FileMode.Create);
+            DES DESalg = DES.Create();
+            CryptoStream cStream = new CryptoStream(fStream, DESalg.CreateEncryptor(Key, IV), CryptoStreamMode.Write);
+            cStream.Write(Data, 0, Data.Length);
+            cStream.Close();
+            fStream.Close();
         }
 
         private void EncryptDesKey(string keyName, byte[] Key, byte[] IV, string outputFile)

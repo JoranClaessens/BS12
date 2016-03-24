@@ -32,15 +32,16 @@
         <Grid x:Name="encryptTextGrid" Margin="0,100,-0.4,0">
             <StackPanel Orientation="Horizontal" Width="Auto" Margin="20,0">
                 <StackPanel Orientation="Vertical" Width="400">
-                    <TextBlock Text="Voer hier je tekst in:" FontSize="16"/>
-                    <TextBox x:Name="inputEncryptTextBox" Height="400"/>
+                    <TextBlock Text="Voer hier je bestand in:" FontSize="16"/>
+                    <Button x:Name="zoekButton" Content="Bestand zoeken ..." Margin="0,10"/>
+                    <TextBox x:Name="inputEncryptTextBox" Height="400" TextWrapping="Wrap"/>
                 </StackPanel>
                 <StackPanel Orientation="Vertical" Margin="20,0,20,140" VerticalAlignment="Center">
                     <Button x:Name="encryptTextButton" Content="Encrypt &gt;" FontSize="20"/>
                 </StackPanel>
                 <StackPanel Orientation="Vertical" Width="400" Margin="0,0">
                     <TextBlock Text="Geëncrypteerde tekst:" FontSize="16"/>
-                    <TextBox x:Name="outputEncryptTextBox" Height="400"/>
+                    <TextBox x:Name="outputEncryptTextBox" Height="400" Margin="0,40" TextWrapping="Wrap"/>
                 </StackPanel>
             </StackPanel>
         </Grid>
