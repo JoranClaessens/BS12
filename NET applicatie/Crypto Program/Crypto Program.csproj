@@ -58,6 +58,8 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
@@ -92,11 +94,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BS12Model.edmx</DependentUpon>
     </Compile>
-    <Compile Include="DESMethod.cs" />
-    <Compile Include="Keys.cs" />
+    <Compile Include="AESMethod.cs" />
     <Compile Include="Gebruiker.cs">
       <DependentUpon>BS12Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="GebruikerFile.cs">
+      <DependentUpon>BS12Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Keys.cs" />
     <Compile Include="PaswoordEncryptie.cs" />
     <Compile Include="RegistreerWindow.xaml.cs">
       <DependentUpon>RegistreerWindow.xaml</DependentUpon>
@@ -199,11 +204,15 @@
       <DependentUpon>BS12Model.edmx</DependentUpon>
       <LastGenOutput>BS12Model.Context.cs</LastGenOutput>
     </Content>
+    <Content Include="BS12Model.edmx.sql" />
     <Content Include="BS12Model.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>BS12Model.edmx</DependentUpon>
       <LastGenOutput>BS12Model.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\testfile_3.txt" />
+    <None Include="Resources\testfile_2.txt" />
+    <None Include="Resources\testfile_1.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

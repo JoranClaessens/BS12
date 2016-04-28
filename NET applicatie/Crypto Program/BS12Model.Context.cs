@@ -25,6 +25,7 @@ namespace Crypto_Program
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Gebruiker> Gebruiker { get; set; }
+        public virtual DbSet<Gebruiker> Gebruikers { get; set; }
+        public virtual DbSet<GebruikerFile> GebruikerFiles { get; set; }
     }
 }

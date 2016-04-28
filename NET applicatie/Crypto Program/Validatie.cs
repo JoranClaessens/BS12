@@ -16,7 +16,7 @@ namespace Crypto_Program
 
             BS12Entities BS12 = new BS12Entities();
 
-            var user = (from gebruiker in BS12.Gebruiker
+            var user = (from gebruiker in BS12.Gebruikers
                        where gebruiker.Gebruikersnaam == gebruikersNaam
                        select gebruiker).Count();
 

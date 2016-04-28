@@ -9,6 +9,7 @@
 //------------------------------------------------------------------------------
 
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("bs12model.context.tt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("bs12model.edmx.sql")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("bs12model.tt")]
 
 

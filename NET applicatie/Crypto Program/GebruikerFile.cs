@@ -12,19 +12,11 @@ namespace Crypto_Program
     using System;
     using System.Collections.Generic;
     
-    public partial class Gebruiker
+    public partial class GebruikerFile
     {
-        public Gebruiker()
-        {
-            this.GebruikerFiles = new HashSet<GebruikerFile>();
-        }
+        public int FileId { get; set; }
+        public Nullable<int> gebruikersId { get; set; }
     
-        public int Id { get; set; }
-        public string Gebruikersnaam { get; set; }
-        public string Paswoord { get; set; }
-        public string Naam { get; set; }
-        public string Voornaam { get; set; }
-    
-        public virtual ICollection<GebruikerFile> GebruikerFiles { get; set; }
+        public virtual Gebruiker Gebruiker { get; set; }
     }
 }

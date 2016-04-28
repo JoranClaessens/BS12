@@ -24,34 +24,87 @@ namespace Crypto_Program
         {
             InitializeComponent();
 
+            gebruikerBox.Focus();
+
+            gebruikerBox.KeyDown += gebruikerBox_KeyDown;
+            paswoordBox.KeyDown += paswoordBox_KeyDown;
+            voornaamBox.KeyDown += voornaamBox_KeyDown;
+            achternaamBox.KeyDown += achternaamBox_KeyDown;
+
             accountButton.Click += accountButton_Click;
+        }
+
+        void gebruikerBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                paswoordBox.Focus();
+            }
+        }
+
+        void paswoordBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                voornaamBox.Focus();
+            }
+        }
+
+        void voornaamBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                achternaamBox.Focus(); ;
+            }
+        }
+
+        void achternaamBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                Registreren();
+            }
         }
 
         void accountButton_Click(object sender, RoutedEventArgs e)
         {
+            Registreren();
+        }
+
+        private void Registreren()
+        {
             string gebruiker = gebruikerBox.Text.ToString();
             string paswoord = paswoordBox.Password;
 
-            BS12Entities BS12 = new BS12Entities();
-
             try
             {
-                if (Validatie.ValideerGebruiker(gebruiker)) 
+                // Checken of de gebruikersnaam voldoet aan de normen
+                if (Validatie.ValideerGebruiker(gebruiker))
                 {
+                    // Checken of het paswoord voldoet aan de normen
                     if (Validatie.ValideerPaswoord(paswoord))
                     {
+                        // Hash creëren van het paswoord
                         string paswoordHash = PaswoordEncryptie.ComputeHash(paswoord, "SHA256", null);
 
-                        var id = (from gebruikers in BS12.Gebruiker
-                                    select gebruikers).Count(); ;
+                        BS12Entities BS12 = new BS12Entities();
 
-                        Gebruiker gebruikerDB = new Gebruiker();
-                        gebruikerDB.Id = id + 1;
-                        gebruikerDB.Gebruikersnaam = gebruiker;
-                        Keys.GenerateRSAKeyPair(gebruiker);
-                        gebruikerDB.Paswoord = paswoordHash;
-                        BS12.Gebruiker.Add(gebruikerDB);
+                        // Volgende Id ophalen uit de database
+                        var gebruikersId = (from gebruikerDB in BS12.Gebruikers
+                                            select gebruikerDB).Count();
+
+                        // Nieuwe gebruiker aanmaken
+                        Gebruiker user = new Gebruiker();
+                        user.Id = gebruikersId + 1;
+                        user.Gebruikersnaam = gebruiker;
+                        user.Naam = achternaamBox.Text;
+                        user.Voornaam = voornaamBox.Text;
+                        user.Paswoord = paswoordHash;
+                        BS12.Gebruikers.Add(user);
                         BS12.SaveChanges();
+
+                        // Een public en private key aanmaken voor deze gebruiker
+                        Keys.GenerateRSAKeyPair(gebruiker);
 
                         this.Close();
                     }

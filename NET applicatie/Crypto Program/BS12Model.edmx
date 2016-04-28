@@ -10,11 +10,37 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" Nullable="false" />
-          <Property Name="Gebruikersnaam" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="Paswoord" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Gebruikersnaam" Type="varchar" MaxLength="50" />
+          <Property Name="Paswoord" Type="varchar" MaxLength="250" />
+          <Property Name="Naam" Type="varchar" MaxLength="50" />
+          <Property Name="Voornaam" Type="varchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="GebruikerFile">
+          <Key>
+            <PropertyRef Name="FileId" />
+          </Key>
+          <Property Name="FileId" Type="int" Nullable="false" />
+          <Property Name="gebruikersId" Type="int" />
+        </EntityType>
+        <Association Name="FK_GebruikerFile_Gebruiker">
+          <End Role="Gebruiker" Type="Self.Gebruiker" Multiplicity="0..1" />
+          <End Role="GebruikerFile" Type="Self.GebruikerFile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gebruiker">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="GebruikerFile">
+              <PropertyRef Name="gebruikersId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="BS12ModelStoreContainer">
           <EntitySet Name="Gebruiker" EntityType="Self.Gebruiker" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GebruikerFile" EntityType="Self.GebruikerFile" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_GebruikerFile_Gebruiker" Association="Self.FK_GebruikerFile_Gebruiker">
+            <End Role="Gebruiker" EntitySet="Gebruiker" />
+            <End Role="GebruikerFile" EntitySet="GebruikerFile" />
+          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
@@ -26,11 +52,39 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="Gebruikersnaam" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Paswoord" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Gebruikersnaam" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Paswoord" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Naam" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Voornaam" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="GebruikerFiles" Relationship="Self.FK_GebruikerFile_Gebruiker" FromRole="Gebruiker" ToRole="GebruikerFile" />
         </EntityType>
+        <EntityType Name="GebruikerFile">
+          <Key>
+            <PropertyRef Name="FileId" />
+          </Key>
+          <Property Name="FileId" Type="Int32" Nullable="false" />
+          <Property Name="gebruikersId" Type="Int32" />
+          <NavigationProperty Name="Gebruiker" Relationship="Self.FK_GebruikerFile_Gebruiker" FromRole="GebruikerFile" ToRole="Gebruiker" />
+        </EntityType>
+        <Association Name="FK_GebruikerFile_Gebruiker">
+          <End Role="Gebruiker" Type="Self.Gebruiker" Multiplicity="0..1" />
+          <End Role="GebruikerFile" Type="Self.GebruikerFile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gebruiker">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="GebruikerFile">
+              <PropertyRef Name="gebruikersId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="BS12Entities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Gebruiker" EntityType="Self.Gebruiker" />
+          <EntitySet Name="Gebruikers" EntityType="Self.Gebruiker" />
+          <EntitySet Name="GebruikerFiles" EntityType="Self.GebruikerFile" />
+          <AssociationSet Name="FK_GebruikerFile_Gebruiker" Association="Self.FK_GebruikerFile_Gebruiker">
+            <End Role="Gebruiker" EntitySet="Gebruikers" />
+            <End Role="GebruikerFile" EntitySet="GebruikerFiles" />
+          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
@@ -38,12 +92,22 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="BS12ModelStoreContainer" CdmEntityContainer="BS12Entities">
-          <EntitySetMapping Name="Gebruiker">
+          <EntitySetMapping Name="Gebruikers">
             <EntityTypeMapping TypeName="BS12Model.Gebruiker">
               <MappingFragment StoreEntitySet="Gebruiker">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Gebruikersnaam" ColumnName="Gebruikersnaam" />
                 <ScalarProperty Name="Paswoord" ColumnName="Paswoord" />
+                <ScalarProperty Name="Naam" ColumnName="Naam" />
+                <ScalarProperty Name="Voornaam" ColumnName="Voornaam" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GebruikerFiles">
+            <EntityTypeMapping TypeName="BS12Model.GebruikerFile">
+              <MappingFragment StoreEntitySet="GebruikerFile">
+                <ScalarProperty Name="FileId" ColumnName="FileId" />
+                <ScalarProperty Name="gebruikersId" ColumnName="gebruikersId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -61,7 +125,7 @@
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />

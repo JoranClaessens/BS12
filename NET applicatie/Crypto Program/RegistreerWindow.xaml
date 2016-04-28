@@ -4,13 +4,21 @@
         Title="Registreer" Height="300" Width="350">
     <Grid>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-            <StackPanel Orientation="Horizontal">
+            <StackPanel Orientation="Horizontal" Margin="0,5">
                 <TextBlock Text="Gebruikersnaam" Width="100" Margin="30,0"/>
                 <TextBox x:Name="gebruikerBox" Width="150"/>
             </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="0,20">
+            <StackPanel Orientation="Horizontal" Margin="0,5">
                 <TextBlock Text="Paswoord" Width="100" Margin="30,0"/>
                 <PasswordBox x:Name="paswoordBox" Width="150"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,5">
+                <TextBlock Text="Voornaam" Width="100" Margin="30,0"/>
+                <TextBox x:Name="voornaamBox" Width="150"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,5,0,20">
+                <TextBlock Text="Achternaam" Width="100" Margin="30,0"/>
+                <TextBox x:Name="achternaamBox" Width="150"/>
             </StackPanel>
             <Button x:Name="accountButton" Content="Account aanmaken" HorizontalAlignment="Center" Width="150"/>
         </StackPanel>
