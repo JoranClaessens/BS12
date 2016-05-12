@@ -79,6 +79,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AESMethod.cs" />
     <Compile Include="BS12Model.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -94,7 +95,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BS12Model.edmx</DependentUpon>
     </Compile>
-    <Compile Include="AESMethod.cs" />
     <Compile Include="Gebruiker.cs">
       <DependentUpon>BS12Model.tt</DependentUpon>
     </Compile>

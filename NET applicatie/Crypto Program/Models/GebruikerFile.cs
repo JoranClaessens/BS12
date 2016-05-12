@@ -5,8 +5,8 @@ namespace Crypto_Program.Models
 {
     public partial class GebruikerFile
     {
-        public int FileId { get; set; }
-        public Nullable<int> gebruikersId { get; set; }
-        public virtual Gebruiker Gebruiker { get; set; }
+        //public int FileId { get; set; }
+        //public Nullable<int> gebruikersId { get; set; }
+        //public virtual Gebruiker Gebruiker { get; set; }
     }
 }

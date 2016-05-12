@@ -30,9 +30,9 @@ namespace Crypto_Program
         {
             InitializeComponent();
 
-            //BS12 = new BS12Entities();
+            BS12 = new BS12Entities();
 
-            BS12Context BS12c = new BS12Context();
+            //BS12Context BS12c = new BS12Context();
 
             aanmeldButton.Click += aanmeldButton_Click;
             registreerButton.Click += registreerButton_Click;

@@ -14,6 +14,7 @@ namespace Crypto_Program
     
     public partial class Gebruiker
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Gebruiker()
         {
             this.GebruikerFiles = new HashSet<GebruikerFile>();
@@ -25,6 +26,7 @@ namespace Crypto_Program
         public string Naam { get; set; }
         public string Voornaam { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<GebruikerFile> GebruikerFiles { get; set; }
     }
 }

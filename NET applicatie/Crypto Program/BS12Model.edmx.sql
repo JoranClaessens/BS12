@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 04/14/2016 16:10:13
+-- Date Created: 05/12/2016 09:40:11
 -- Generated from EDMX file: C:\Users\11400919\Desktop\Crypto Program\BS12Model.edmx
 -- --------------------------------------------------
 
@@ -17,6 +17,9 @@ GO
 -- Dropping existing FOREIGN KEY constraints
 -- --------------------------------------------------
 
+IF OBJECT_ID(N'[dbo].[FK_GebruikerFile_Gebruiker]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[GebruikerFile] DROP CONSTRAINT [FK_GebruikerFile_Gebruiker];
+GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
@@ -25,19 +28,28 @@ GO
 IF OBJECT_ID(N'[dbo].[Gebruiker]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Gebruiker];
 GO
+IF OBJECT_ID(N'[dbo].[GebruikerFile]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[GebruikerFile];
+GO
 
 -- --------------------------------------------------
 -- Creating all tables
 -- --------------------------------------------------
 
--- Creating table 'Gebruiker'
-CREATE TABLE [dbo].[Gebruiker] (
+-- Creating table 'Gebruikers'
+CREATE TABLE [dbo].[Gebruikers] (
     [Id] int  NOT NULL,
-    [Gebruikersnaam] varchar(20)  NOT NULL,
-    [Paswoord] varchar(200)  NOT NULL,
-    [Naam] nvarchar(max)  NOT NULL,
-    [Voornaam] nvarchar(max)  NOT NULL,
-    [RSA_Public] nvarchar(max)  NOT NULL
+    [Gebruikersnaam] varchar(50)  NULL,
+    [Paswoord] varchar(250)  NULL,
+    [Naam] varchar(50)  NULL,
+    [Voornaam] varchar(50)  NULL
+);
+GO
+
+-- Creating table 'GebruikerFiles'
+CREATE TABLE [dbo].[GebruikerFiles] (
+    [FileId] int  NOT NULL,
+    [gebruikersId] int  NULL
 );
 GO
 
@@ -45,15 +57,36 @@ GO
 -- Creating all PRIMARY KEY constraints
 -- --------------------------------------------------
 
--- Creating primary key on [Id] in table 'Gebruiker'
-ALTER TABLE [dbo].[Gebruiker]
-ADD CONSTRAINT [PK_Gebruiker]
+-- Creating primary key on [Id] in table 'Gebruikers'
+ALTER TABLE [dbo].[Gebruikers]
+ADD CONSTRAINT [PK_Gebruikers]
     PRIMARY KEY CLUSTERED ([Id] ASC);
+GO
+
+-- Creating primary key on [FileId] in table 'GebruikerFiles'
+ALTER TABLE [dbo].[GebruikerFiles]
+ADD CONSTRAINT [PK_GebruikerFiles]
+    PRIMARY KEY CLUSTERED ([FileId] ASC);
 GO
 
 -- --------------------------------------------------
 -- Creating all FOREIGN KEY constraints
 -- --------------------------------------------------
+
+-- Creating foreign key on [gebruikersId] in table 'GebruikerFiles'
+ALTER TABLE [dbo].[GebruikerFiles]
+ADD CONSTRAINT [FK_GebruikerFile_Gebruiker]
+    FOREIGN KEY ([gebruikersId])
+    REFERENCES [dbo].[Gebruikers]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_GebruikerFile_Gebruiker'
+CREATE INDEX [IX_FK_GebruikerFile_Gebruiker]
+ON [dbo].[GebruikerFiles]
+    ([gebruikersId]);
+GO
 
 -- --------------------------------------------------
 -- Script has ended
