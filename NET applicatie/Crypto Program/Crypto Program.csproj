@@ -102,11 +102,6 @@
       <DependentUpon>BS12Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Keys.cs" />
-    <Compile Include="Models\BS12Context.cs" />
-    <Compile Include="Models\Gebruiker.cs" />
-    <Compile Include="Models\GebruikerFile.cs" />
-    <Compile Include="Models\Mapping\GebruikerFileMap.cs" />
-    <Compile Include="Models\Mapping\GebruikerMap.cs" />
     <Compile Include="PaswoordEncryptie.cs" />
     <Compile Include="RegistreerWindow.xaml.cs">
       <DependentUpon>RegistreerWindow.xaml</DependentUpon>
