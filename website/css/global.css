@@ -1,0 +1,99 @@
+@charset "utf-8";
+/* CSS Document */
+
+* {
+	margin:0;
+	padding:0;
+}
+
+/* Special classes that can be used */
+.alignCenter {
+	text-align: center;
+}
+
+.alignRight {
+	text-align: right;
+}
+
+.alignLeft {
+	text-align: left;
+}
+
+.alignJustify {
+	text-align: justify;
+}
+
+.inline {
+	display: inline;
+}
+
+.button {
+	padding: 3px 10px;
+	background-color: rgba(130,130,130,1.00);
+	border: 1px solid rgba(0,0,0,1.00);
+	color: rgba(255,255,255,1.00);
+	border-radius: 10px;
+	font-size: 15px;
+	cursor: pointer;
+	margin: 5px 10px -3px;
+	text-decoration: none;
+	font-family: Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.button:hover {
+	background-color: rgba(33,182,220,1.00);
+	color: rgba(0,0,0,1.00);
+}
+
+/* css settings used on all the pages of the website */
+body {
+	position:absolute;
+	top:0;
+	bottom:0;
+	left:0;
+	right:0;
+	background-image: url(../images/Vault_round.png);
+	background-size: auto 70%;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-attachment: fixed;
+	background-color:lightgray;
+}
+
+div#inhoud {
+	margin:50px auto 35px;
+	max-width:900px;
+	overflow:hidden;
+	word-wrap: break-word;
+	background-color: rgba(255,255,255,0.9);
+	padding: 1em;
+	box-shadow: 2px 2px 4px rgba(0,0,0,1.00);
+	border-radius:10px;
+}
+
+@media screen and (max-width: 930px) {
+
+	div#inhoud {
+		border-radius:0;
+		word-wrap: break-word;
+	}
+}
+
+@media screen and (max-width: 600px) {
+
+	.button {
+		margin: 5px 10px;
+	}
+	div#inhoud {
+		position: fixed;
+		top:45px;
+		bottom:28px;
+		right:0;
+		left:0;
+		margin:0;
+		overflow: auto;
+		border-radius:0;
+		word-wrap: break-word;
+	}
+	
+}

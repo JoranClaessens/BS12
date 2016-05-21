@@ -1,0 +1,92 @@
+@charset "utf-8";
+/* CSS Document */
+
+fieldset {
+	border-color: rgba(0,0,0,1.00);
+	border-radius: 10px;
+	margin: 5px;
+	padding: 5px;
+}
+
+legend {
+	padding: 0px 3px;
+}
+
+#register {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform:translate(-50%,-50%);
+	background-color: rgba(255,255,255,0.75);
+	border: 3px solid rgba(0,0,0,1.00);
+	border-radius: 10px;
+	padding: 5px;
+}
+
+#register h3 {
+	text-align: center;
+}
+
+#register form {
+	margin: 10px;
+	text-align: center;
+}
+
+#register form .veld {
+	margin: 5px 0;
+}
+
+#register form fieldset#login {
+	text-align: center;
+}
+
+#register form fieldset#login .veld label {
+	display: inline-block;
+	width: 155px;
+	margin: 0px 5px;
+	font-weight: bold;
+}
+
+#register form fieldset#login .veld input.widthInput {
+	width: 150px;
+	height: 20px;
+}
+
+#register form fieldset#persoon {
+	text-align: center;
+}
+
+#register form fieldset#persoon .veld label {
+	display: inline-block;
+	width: 100px;
+	margin: 0px 5px;
+	font-weight: bold;
+}
+
+#register form fieldset#persoon .veld input.widthInput {
+	width: 150px;
+	height: 20px;
+}
+
+#register form fieldset#rsa {
+	text-align: left;
+}
+
+#register form fieldset#rsa .veld label {
+	display: block;
+	font-weight: bold;
+}
+
+#register form fieldset#rsa .veld input[type=radio] {
+	margin-right: 5px;
+}
+
+#register form fieldset#rsa .veld input#publickey {
+	width: 300px;
+	height: 20px;
+	background-color: rgba(255,255,255,1.00);
+}
+
+#register form fieldset#rsa .toggleView {
+	display: none;
+}

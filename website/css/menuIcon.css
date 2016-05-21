@@ -1,0 +1,26 @@
+@charset "utf-8";
+/* CSS Document */
+
+#homeIcon {
+	background-image:url(../images/home_rs.png);
+	background-repeat:no-repeat;
+	background-position:center;
+}
+#homeIcon:hover {
+	background-image:url(../images/home_hv.png);
+}
+#homeIcon #hideMenu {
+	visibility:hidden;
+}
+
+@media screen and (max-width: 600px) {
+	#homeIcon {
+		background-image:none;
+	}
+	#homeIcon:hover {
+		background-image:none;
+	}
+	#homeIcon #hideMenu {
+		visibility:visible;
+	}
+}

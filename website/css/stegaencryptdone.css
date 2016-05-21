@@ -1,0 +1,21 @@
+/* CSS Document */
+
+#inhoud > article {
+	padding: 5px;
+}
+
+#inhoud > article p {
+	margin: 5px 10px;
+	text-align: justify; 
+}
+
+#inhoud > article div#image {
+	width: 95%;
+	margin: 0 auto;
+	text-align: center;
+}
+
+#inhoud > article div#image img {
+	border: 1px solid rgba(0,0,0,1.00);
+	max-width: 100%;
+}

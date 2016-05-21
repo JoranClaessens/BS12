@@ -1,0 +1,27 @@
+@charset "utf-8";
+/* CSS Document */
+
+#inhoud > article {
+	padding: 5px;
+}
+
+#inhoud > article p {
+	margin: 5px 10px;
+}
+
+#inhoud > article table {
+	border: 1px solid rgba(0,0,0,1.00);
+	padding: 2px;
+	border-radius: 5px;
+	box-shadow: 2px 2px 4px rgba(0,0,0,1.00);
+	margin: 10px 20px 0;
+}
+
+#inhoud > article table thead {
+	background-color: rgba(171,171,171,1.00);
+	padding: 2px;
+}
+
+#inhoud > article table tbody td {
+	padding: 5px;
+}

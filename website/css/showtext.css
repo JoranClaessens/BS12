@@ -1,0 +1,18 @@
+@charset "utf-8";
+/* CSS Document */
+
+#inhoud > article {
+	padding: 5px;
+}
+
+#inhoud > article p {
+	margin: 5px 10px;
+}
+
+#inhoud > article p#message {
+	border: 1px solid rgba(0,0,0,1.00);
+	margin: 10px;
+	padding: 5px;
+	border-radius: 5px;
+	box-shadow: 2px 2px 4px rgba(0,0,0,1.00);
+}
