@@ -1,6 +1,6 @@
 <?php
 # Global Variabels for the Website
-$_SESSION['version'] = 'v0.75&beta;';
+$_SESSION['version'] = 'v0.80&beta;';
 $_SESSION['numberMenuItems'] = 15; # Maximum number of menu items
 
 # MySQL Host
