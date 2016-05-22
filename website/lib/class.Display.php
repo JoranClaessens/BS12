@@ -459,9 +459,11 @@ class Display extends HTML5
 	{
 		$DBcon = new DBconnect($_SESSION['mysqlHost'], $_SESSION['mysqlGebruiker'], $_SESSION['mysqlPaswoord'], $_SESSION['mysqlDatabase']);
 		$query = "SELECT d.id, u.username, u.voornaam, u.familienaam
-					FROM download d JOIN li_user u
+					FROM download d
+					JOIN li_user u
 					ON d.id_from = u.id
 					WHERE id_to = {$this->login->data['id']}
+					AND d.type = 'image'
 					ORDER BY id";
 		$DBcon->query($query);
 
