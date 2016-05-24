@@ -47,6 +47,21 @@
             </StackPanel>
         </Grid>
 
+        <Grid x:Name="StegoGrid" Margin="0,100,-0.4,0" Visibility="Hidden">
+            <Button x:Name="loadImageBtn" Content="Laad afbeelding" HorizontalAlignment="Left" Margin="246,183,0,0" VerticalAlignment="Top" Width="112" Click="loadImageBtn_Click"/>
+            <Button x:Name="hideButton" Content="Verberg tekst" HorizontalAlignment="Left" Margin="246,208,0,0" VerticalAlignment="Top" Width="112" Click="hideButton_Click"/>
+            <Button x:Name="extractButton" Content="Haal eruit" HorizontalAlignment="Left" Margin="246,233,0,0" VerticalAlignment="Top" Width="112" Click="extractButton_Click"/>
+            <Image x:Name="imagePictureBox" HorizontalAlignment="Left" Height="160" Margin="37,10,0,0" VerticalAlignment="Top" Width="195"/>
+            <TextBox x:Name="dataTextBox" HorizontalAlignment="Left" Height="88" Margin="37,179,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="195"/>
+            <CheckBox x:Name="encryptCheckBox" Content="Encrypted" HorizontalAlignment="Left" Margin="37,292,0,0" VerticalAlignment="Top"/>
+            <Label Content="Password:" HorizontalAlignment="Left" Margin="127,286,0,0" VerticalAlignment="Top" Height="34"/>
+            <TextBox x:Name="passwordTextBox" HorizontalAlignment="Left" Height="23" Margin="195,286,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+
+
+
+
+        </Grid>
+
         <Grid x:Name="encryptFileGrid" Margin="0,100,-0.4,0" Visibility="Hidden">
 
         </Grid>
@@ -56,7 +71,6 @@
         </Grid>
 
         <Image Source="Afbeeldingen/background-2.jpg" VerticalAlignment="Top" Height="75" Stretch="UniformToFill"/>
-        <Image Source="Afbeeldingen/logo-2.jpg" VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" Margin="50,0"/>
         <Expander x:Name="encryptExpander" Header="Encrypt" FontSize="25" Foreground="White" VerticalAlignment="Top" Margin="200,20">
             <ListBox HorizontalAlignment="Left" Width="350">
                 <Button x:Name="menuEncryptTextButton" Content="Encrypt textfile" Background="White" BorderBrush="White" Width="335" HorizontalContentAlignment="Left"/>
@@ -64,9 +78,15 @@
         </Expander>
         <Expander x:Name="decryptExpander" Header="Decrypt" FontSize="25" Foreground="White" VerticalAlignment="Top" Margin="350,20,290,0">
             <ListBox HorizontalAlignment="Left" Width="350">
-                <Button x:Name="menuDecryptTextButton" Content="Decrypt textfile" Background="White" BorderBrush="White" Width="335" HorizontalContentAlignment="Left"/>
+                <Button x:Name="menuDecryptTextButton" Content="Decrypt textfile" Background="White" BorderBrush="White" Width="335" HorizontalContentAlignment="Left" Click="menuDecryptTextButton_Click_1"/>
             </ListBox>
         </Expander>
+        <Expander x:Name="stegoexpander" Header="Stegonography" FontSize="25" Foreground="White" VerticalAlignment="Top" Margin="501,20,139,0">
+
+            <Button x:Name="menuStegoTextButton" Content="Verberg text in foto" Background="White" BorderBrush="White" Width="335" HorizontalContentAlignment="Left" Click="menuStegoTextButton_Click"/>
+
+        </Expander>
+
         <StackPanel HorizontalAlignment="Right" VerticalAlignment="Top" Height="75">
             <Label x:Name="gebruikerLabel" FontSize="22" Foreground="White"/>
             <Button x:Name="afmeldButton" Content="Afmelden" HorizontalAlignment="Right" Margin="0,5,5,0" Width="100"/>

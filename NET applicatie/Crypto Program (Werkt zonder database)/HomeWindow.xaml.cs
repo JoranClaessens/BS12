@@ -16,6 +16,10 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using System.Drawing;
+using System.Drawing.Imaging;
+
+
 namespace Crypto_Program
 {
     /// <summary>
@@ -25,6 +29,9 @@ namespace Crypto_Program
     {
         private string encryptieFilePath;
         private string gebruiker;
+
+        private Bitmap bmp = null;
+        private string extractedText = string.Empty;
 
         public HomeWindow(string gebruiker)
         {
@@ -53,6 +60,7 @@ namespace Crypto_Program
         void menuEncryptTextButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             encryptTextGrid.Visibility = Visibility.Visible;
+            StegoGrid.Visibility = Visibility.Hidden;
             decryptTextGrid.Visibility = Visibility.Hidden;
 
             string gebruiker = Convert.ToString(gebruikerLabel.Content);
@@ -80,6 +88,7 @@ namespace Crypto_Program
         void menuDecryptTextButton_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             encryptTextGrid.Visibility = Visibility.Hidden;
+            StegoGrid.Visibility = Visibility.Hidden;
             decryptTextGrid.Visibility = Visibility.Visible;
 
             string folder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
@@ -242,6 +251,125 @@ namespace Crypto_Program
                loginWindow.ShowDialog();
            }
         }
+
+        private void loadImageBtn_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog open_dialog = new OpenFileDialog();
+            open_dialog.Filter = "Image Files (*.jpeg; *.png; *.bmp)|*.jpg; *.png; *.bmp";
+
+            if (open_dialog.ShowDialog() == true)
+            {
+                imagePictureBox.Source = new BitmapImage(new Uri(open_dialog.FileName));
+
+                
+                maakLeeg();
+            }
+        }
+        private void maakLeeg()
+        {
+            dataTextBox.Text = "";
+            passwordTextBox.Text = "";
+            encryptCheckBox.IsChecked = false;
+        }
+        private Bitmap BitmapImage2Bitmap(BitmapImage bitmapImage)
+        {
+            
+
+            using (MemoryStream outStream = new MemoryStream())
+            {
+                BitmapEncoder enc = new BmpBitmapEncoder();
+                enc.Frames.Add(BitmapFrame.Create(bitmapImage));
+                enc.Save(outStream);
+                System.Drawing.Bitmap bitmap = new System.Drawing.Bitmap(outStream);
+
+                return new Bitmap(bitmap);
+            }
+        }
+        private void extractButton_Click(object sender, RoutedEventArgs e)
+        {
+            bmp = BitmapImage2Bitmap(imagePictureBox.Source as BitmapImage);
+
+            string extractedText = SteganographyHelper.extractText(bmp);
+
+            if (encryptCheckBox.IsChecked == true)
+            {
+                try
+                {
+                    extractedText = Crypto.DecryptStringAES(extractedText, passwordTextBox.Text);
+                }
+                catch
+                {
+                    MessageBox.Show("Wrong password", "Error");
+
+                    return;
+                }
+            }
+
+            dataTextBox.Text = extractedText;
+        }
+
+        private void hideButton_Click(object sender, RoutedEventArgs e)
+        {
+            bmp = BitmapImage2Bitmap(imagePictureBox.Source as BitmapImage);
+
+            string text = dataTextBox.Text;
+
+            if (text.Equals(""))
+            {
+                MessageBox.Show("The text you want to hide can't be empty", "Warning");
+                return;
+            }
+
+            if (encryptCheckBox.IsChecked == true)
+            {
+                if (passwordTextBox.Text.Length < 6)
+                {
+                    MessageBox.Show("Please enter a password with at least 6 characters", "Warning");
+                    return;
+                }
+                else
+                    text = Crypto.EncryptStringAES(text, passwordTextBox.Text);
+
+            }
+
+            bmp = SteganographyHelper.embedText(text, bmp);
+
+            MessageBox.Show("Your text was hidden in the image successfully!", "Done");
+            maakLeeg();
+
+            SaveFileDialog save_dialog = new SaveFileDialog();
+            save_dialog.Filter = "Png Image|*.png|Bitmap Image|*.bmp";
+
+            if (save_dialog.ShowDialog() == true)
+            {
+                switch (save_dialog.FilterIndex)
+                {
+                    case 0:
+                        {
+                            bmp.Save(save_dialog.FileName, ImageFormat.Png);
+                        } break;
+                    case 1:
+                        {
+                            bmp.Save(save_dialog.FileName, ImageFormat.Bmp);
+                        } break;
+                }
+
+
+            }
+        }
+
+        private void menuStegoTextButton_Click(object sender, RoutedEventArgs e)
+        {
+            encryptTextGrid.Visibility = Visibility.Hidden;
+            StegoGrid.Visibility = Visibility.Visible;
+            decryptTextGrid.Visibility = Visibility.Hidden;
+        }
+
+        private void menuDecryptTextButton_Click_1(object sender, RoutedEventArgs e)
+        {
+
+        }
+
 
     }
 }

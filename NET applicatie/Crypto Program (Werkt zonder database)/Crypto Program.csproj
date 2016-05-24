@@ -58,6 +58,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.IO.Compression" />
     <Reference Include="System.IO.Compression.FileSystem" />
     <Reference Include="System.Runtime.Serialization" />
@@ -95,6 +96,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BS12Model.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Crypto.cs" />
     <Compile Include="Gebruiker.cs">
       <DependentUpon>BS12Model.tt</DependentUpon>
     </Compile>
@@ -106,6 +108,7 @@
     <Compile Include="RegistreerWindow.xaml.cs">
       <DependentUpon>RegistreerWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SteganographyHelper.cs" />
     <Compile Include="Validatie.cs" />
     <Page Include="LoginWindow.xaml">
       <SubType>Designer</SubType>

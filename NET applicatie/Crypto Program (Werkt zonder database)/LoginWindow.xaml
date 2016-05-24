@@ -3,21 +3,18 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Login" Height="300" Width="350">
     <Grid>
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Gebruikersnaam" Width="100" Margin="30,0"/>
-                <TextBox x:Name="gebruikerBox" Width="150"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="0,20">
-                <TextBlock Text="Paswoord" Width="100" Margin="30,0"/>
-                <PasswordBox x:Name="paswoordBox" Width="150"/>
-            </StackPanel>
-            <StackPanel>
-                <Button x:Name="aanmeldButton" Content="Aanmelden" HorizontalAlignment="Center" Width="150"/>
-                <TextBlock Text="OF" HorizontalAlignment="Center" Margin="010"/>
-                <Button x:Name="registreerButton" Content="Nieuwe gebruiker" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="150"/>
-            </StackPanel>
-        </StackPanel>
-        
+        <Grid.Background>
+            <RadialGradientBrush>
+                <GradientStop Color="#FF5F5F5F" Offset="0"/>
+                <GradientStop Color="#FF474747" Offset="1"/>
+            </RadialGradientBrush>
+        </Grid.Background>
+        <TextBox x:Name="gebruikerBox" Margin="93,74,99,172"/>
+        <PasswordBox x:Name="paswoordBox" Margin="93,123,99,121"/>
+        <Button x:Name="aanmeldButton" Content="Login" HorizontalAlignment="Center" Width="150" Margin="93,153,99,90"/>
+        <Button x:Name="registreerButton" Content="Registreer" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="116" Margin="216,0,10,10"/>
+        <Label Content="Gebruikersnaam" HorizontalAlignment="Left" Margin="93,48,0,0" VerticalAlignment="Top" Foreground="#FF63C105"/>
+        <Label Content="Wachtwoord" HorizontalAlignment="Left" Margin="93,97,0,0" VerticalAlignment="Top" Foreground="#FF63C105" BorderBrush="Black"/>
+
     </Grid>
 </Window>
