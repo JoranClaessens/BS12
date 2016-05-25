@@ -23,7 +23,6 @@ namespace Crypto_Program
     {
         private string folder;
         private string specificFolder;
-        private BS12Entities BS12;
         
         public LoginWindow()
         {

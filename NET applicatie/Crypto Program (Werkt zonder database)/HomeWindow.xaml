@@ -78,7 +78,7 @@
         </Expander>
         <Expander x:Name="decryptExpander" Header="Decrypt" FontSize="25" Foreground="White" VerticalAlignment="Top" Margin="350,20,290,0">
             <ListBox HorizontalAlignment="Left" Width="350">
-                <Button x:Name="menuDecryptTextButton" Content="Decrypt textfile" Background="White" BorderBrush="White" Width="335" HorizontalContentAlignment="Left" Click="menuDecryptTextButton_Click_1"/>
+                <Button x:Name="menuDecryptTextButton" Content="Decrypt textfile" Background="White" BorderBrush="White" Width="335" HorizontalContentAlignment="Left" />
             </ListBox>
         </Expander>
         <Expander x:Name="stegoexpander" Header="Stegonography" FontSize="25" Foreground="White" VerticalAlignment="Top" Margin="501,20,139,0">

@@ -35,19 +35,19 @@ namespace Crypto_Program
                 // Create a new instance of the AesManaged 
                 // class.  This generates a new key and initialization  
                 // vector (IV). 
-                using (AesManaged myRijndael = new AesManaged())
+                using (AesManaged aes = new AesManaged())
                 {
-                    myRijndael.GenerateKey();
-                    myRijndael.GenerateIV();
+                    aes.GenerateKey();
+                    aes.GenerateIV();
 
                     // Encrypt the string to an array of bytes. 
-                    EncryptFile(encryptieFilePath, outputFile1, myRijndael.Key, myRijndael.IV);
+                    EncryptFile(encryptieFilePath, outputFile1, aes.Key, aes.IV);
 
                     encryptedTekst = File.ReadAllText(outputFile1);
 
                     string ontvangerPublicKey = System.IO.Path.Combine(keysFolder, "Public_" + ontvanger + ".txt");
                     string publicOntvanger = File.ReadAllText(ontvangerPublicKey);
-                    EncryptDesKey(publicOntvanger, outputFile2, myRijndael.Key, myRijndael.IV);
+                    EncryptDesKey(publicOntvanger, outputFile2, aes.Key, aes.IV);
 
                     string verzenderPrivateKey = System.IO.Path.Combine(keysFolder, "Private_" + verzender + ".txt");
                     string privateVerzender = File.ReadAllText(verzenderPrivateKey);
@@ -82,15 +82,15 @@ namespace Crypto_Program
             if (IV == null || IV.Length <= 0)
                 throw new ArgumentNullException("IV");
             byte[] encrypted;
-            // Create an RijndaelManaged object 
+            // Create an AesManaged object 
             // with the specified key and IV. 
-            using (AesManaged rijAlg = new AesManaged())
+            using (AesManaged aes = new AesManaged())
             {
-                rijAlg.Key = Key;
-                rijAlg.IV = IV;
+                aes.Key = Key;
+                aes.IV = IV;
 
                 // Create a decryptor to perform the stream transform.
-                ICryptoTransform encryptor = rijAlg.CreateEncryptor(rijAlg.Key, rijAlg.IV);
+                ICryptoTransform encryptor = aes.CreateEncryptor(aes.Key, aes.IV);
 
                 // Create the streams used for encryption. 
                 using (MemoryStream msEncrypt = new MemoryStream())
@@ -195,15 +195,15 @@ namespace Crypto_Program
             // the decrypted text. 
             string plaintext = null;
 
-            // Create an RijndaelManaged object 
+            // Create an AesManaged object 
             // with the specified key and IV. 
-            using (AesManaged rijAlg = new AesManaged())
+            using (AesManaged aes = new AesManaged())
             {
-                rijAlg.Key = Key;
-                rijAlg.IV = IV;
+                aes.Key = Key;
+                aes.IV = IV;
 
                 // Create a decrytor to perform the stream transform.
-                ICryptoTransform decryptor = rijAlg.CreateDecryptor(rijAlg.Key, rijAlg.IV);
+                ICryptoTransform decryptor = aes.CreateDecryptor(aes.Key, aes.IV);
 
                 // Create the streams used for decryption. 
                 using (MemoryStream msDecrypt = new MemoryStream(cipherText))

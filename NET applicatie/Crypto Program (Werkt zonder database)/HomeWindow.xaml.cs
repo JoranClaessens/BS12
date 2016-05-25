@@ -44,6 +44,9 @@ namespace Crypto_Program
             decryptExpander.MouseEnter += decryptExpander_MouseEnter;
             decryptExpander.MouseLeave += decryptExpander_MouseLeave;
 
+            stegoexpander.MouseEnter += Stegoexpander_MouseEnter;
+            stegoexpander.MouseLeave += Stegoexpander_MouseLeave;
+
             gebruikerLabel.Content = "Ingelogd als " + gebruiker;
             afmeldButton.Click += afmeldButton_Click;
 
@@ -241,6 +244,16 @@ namespace Crypto_Program
             decryptExpander.IsExpanded = false;
         }
 
+        void Stegoexpander_MouseEnter(object sender, MouseEventArgs e)
+        {
+            stegoexpander.IsExpanded = true;
+        }
+
+        void Stegoexpander_MouseLeave(object sender, MouseEventArgs e)
+        {
+            stegoexpander.IsExpanded = false;
+        }
+
         void afmeldButton_Click(object sender, RoutedEventArgs e)
         {
            MessageBoxResult result = MessageBox.Show("Bent u zeker dat u wilt afmelden?", "Afmelden", MessageBoxButton.YesNo, MessageBoxImage.Question);
@@ -364,12 +377,5 @@ namespace Crypto_Program
             StegoGrid.Visibility = Visibility.Visible;
             decryptTextGrid.Visibility = Visibility.Hidden;
         }
-
-        private void menuDecryptTextButton_Click_1(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-
     }
 }
