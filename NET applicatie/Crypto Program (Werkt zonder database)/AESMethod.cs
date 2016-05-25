@@ -118,6 +118,7 @@ namespace Crypto_Program
 
             using (RSACryptoServiceProvider rsa = new RSACryptoServiceProvider())
             {
+                // load the public key of the reciever
                 rsa.FromXmlString(keyName);
                 encKey = rsa.Encrypt(key, true);
                 encIV = rsa.Encrypt(IV, true);
@@ -132,8 +133,11 @@ namespace Crypto_Program
             byte[] byteArray = hash;
             byte[] EncryptedFile;
 
+            // load private key
             RSACryptoServiceProvider rsa = new RSACryptoServiceProvider();
             rsa.FromXmlString(privateKey);
+
+            // sign the data with the private key which creates a hash
             EncryptedFile = rsa.SignHash(byteArray, CryptoConfig.MapNameToOID("SHA1"));
 
             string signedHash = Convert.ToBase64String(EncryptedFile);
@@ -152,11 +156,13 @@ namespace Crypto_Program
             byte[] DecKey;
             byte[] DecIV;
 
+            // read encrypted key file
             using (StreamReader sr = File.OpenText(file))
             {
                 encKeyIV = sr.ReadToEnd();
             }
 
+            // convert key and IV to bytes for decryption
             char[] seperator = { ':' };
             string[] split = encKeyIV.Split(seperator);
             encKey = Convert.FromBase64String(split[0]);
@@ -164,8 +170,11 @@ namespace Crypto_Program
 
             using (RSACryptoServiceProvider rsa = new RSACryptoServiceProvider())
             {
+                // load private key for decryption
                 string inputFile = System.IO.Path.Combine(keysFolder, "Private_" + gebruiker + ".txt");
                 string Private_Bxml = File.ReadAllText(inputFile);
+
+                // use private key to decrypt the aes key
                 rsa.FromXmlString(Private_Bxml);
                 DecKey = rsa.Decrypt(encKey, true);
                 DecIV = rsa.Decrypt(encIV, true);
@@ -225,6 +234,7 @@ namespace Crypto_Program
 
         public bool VerifyHash(string file, string publicKey)
         {
+            // read encrypted hash file
             string fileText = File.ReadAllText(file);
             byte[] cipherText = Encoding.UTF8.GetBytes(fileText);
 
@@ -235,12 +245,16 @@ namespace Crypto_Program
 
             SHA1Managed SHhash = new SHA1Managed();
             string text = File.ReadAllText(inputFile1);
+
+            // create hash of original file
             byte[] hash_decrypted = SHhash.ComputeHash(Encoding.UTF8.GetBytes(text));
 
+            // load public key for decryption hash file
             RSACryptoServiceProvider rsa = new RSACryptoServiceProvider();
             string publicKeystring = File.ReadAllText(publicKey);
             rsa.FromXmlString(publicKeystring);
 
+            // verify the decrypted hash with the hash created from the original file
             validHash = rsa.VerifyHash(hash_decrypted, CryptoConfig.MapNameToOID("SHA1"), Convert.FromBase64String(fileText));
 
             return validHash;
