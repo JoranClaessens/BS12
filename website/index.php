@@ -6,9 +6,9 @@
 * For extra protection, we use RSA to encrypt the DES/AES key and the HASH of the file.
 * The file can only safely being decrypted when both parties are known.
 *
-* This app can also do Steganography. The WebApp will RSA encrypt a file or text and add
-* it to a photo which you upload. The result will be a PNG image which include the hidden
-* data. (The Stega class can be used to add plain text to an image, the Crypt class add
+* This app also does Steganography. The WebApp will RSA encrypt a file or text and add
+* it to a photo which you upload. The result will be a PNG image which includes the hidden
+* data. (The Stega class can be used to add plain text to an image, the Crypt class adds
 * the RSA encryption to it.)
 *
 * @author		Rudy Mas <rudy.mas@rudymas.be>

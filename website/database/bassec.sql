@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 21, 2016 at 06:38 PM
--- Server version: 10.1.10-MariaDB
--- PHP Version: 7.0.3
+-- Generation Time: May 25, 2016 at 05:45 PM
+-- Server version: 10.1.13-MariaDB
+-- PHP Version: 7.0.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -19,6 +19,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `bassec`
 --
+CREATE DATABASE IF NOT EXISTS `bassec` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `bassec`;
 
 -- --------------------------------------------------------
 
@@ -56,14 +58,6 @@ CREATE TABLE `li_user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `li_user`
---
-
-INSERT INTO `li_user` (`id`, `username`, `password`, `salt`, `remember_me`, `remember_me_ip`, `voornaam`, `familienaam`, `RSA_public`) VALUES
-(1, 'Rudy Mas', 'f6c26fd69e1b8ea6ba1060cca2805bec38f5905d', 'GewugMThHD6HmhhV3FYI', 'jMyjX8uqsOg9agZHWsgN6S9Ev', '::1', 'Rudy', 'Mas', '<RSAKeyValue>\r\n  <Modulus>6Hdbv14GVInzZd6m39kgsTw5aiRP9xBWRkV+p0/Jf94Z0ZUt0RdWiiJH2z+VL0Vo5iMI24AQ2YT4HVSUQGSCm8bw2VbMtgCNxalN8CmHqPTflHkqan3e5CZSvI3krcI0FHAOMwLtdYBqUIl6xprHwLd7EgVa7fdhcVDlpwck9rJZnS7z6WkcWwa+E42rrTH5NSxS6JA2UUNCNacNvdnupBO8nhX8GLJcpVFnMavBXNssiosO1/3uKZ6myOaYbkAIonq2p9Y0ObcWwycMC0l3eg0w495vBbbigeRymGULZXhKYG3qLKOkWIZRG61tdi8+SgTza0dEIEfW/uFLed8cDQ==</Modulus>\r\n  <Exponent>AQAB</Exponent>\r\n</RSAKeyValue>'),
-(2, 'Bronco', '4b15f770fe994ac557312216ceeae6a651faa31c', 'YHyY5KNaUVj5pPO74xv3', '', '', 'Peter', 'Meisters', '<RSAKeyValue>\r\n  <Modulus>tukBmnjoe9zY/MGbuwbq86xW3sky8jistDeYjyFL9GCwybvGPNopbtB83Rzc2rNgc3qv7AQ60p5NJgRzDsVQ+9fCuBr4JxzS1p8+VoB3Lz7Lr4SBCEnkd7EpeRuq6stRRxBU42WGJO3Z+owESNPWZ/wzObOr/0NJjg0U66tKj/mhI8mvjYyv3NPX65lhzTKRhceiTBpUEFKWudm8McktIzeY5mGyeXlC3z551j9rEInMXKD2Vcru8r/1VcucTsDnQ26oXWSZ7+zDQ0/3iho8pRHehKOex+AJvL66oRU9Z/8zx9l1nGiBoFfDx2iW5KGXwuIGIGUssdSx6Cz/Gw6PTQ==</Modulus>\r\n  <Exponent>AQAB</Exponent>\r\n</RSAKeyValue>');
-
---
 -- Indexes for dumped tables
 --
 
@@ -87,12 +81,12 @@ ALTER TABLE `li_user`
 -- AUTO_INCREMENT for table `download`
 --
 ALTER TABLE `download`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 --
 -- AUTO_INCREMENT for table `li_user`
 --
 ALTER TABLE `li_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

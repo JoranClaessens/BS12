@@ -147,9 +147,9 @@ class Display extends HTML5
 		}
 		
 		$pageOutput = $this->menu();
-		$pageOutput.= $this->div('open', 'id="inhoud"');
-		$pageOutput.= $this->code('full', '', $this->pre('full', '', 'Frontpage met informatie voor de gebruiker.'));
-		$pageOutput.= $this->div('close');
+#		$pageOutput.= $this->div('open', 'id="inhoud"');
+#		$pageOutput.= $this->code('full', '', $this->pre('full', '', 'Frontpage met informatie voor de gebruiker.'));
+#		$pageOutput.= $this->div('close');
 		return $pageOutput;
 	}
 	
